@@ -13,7 +13,11 @@ const defaultStyle = css`
     margin: 10px;
     &:hover{
         background-color: #004d58;
-        color:#fff;
+        color:#c2c2c2;
+    }
+    &:focus{
+        background-color: #004d58;
+        color:#c2c2c2;
     }
 `;
 
@@ -23,9 +27,10 @@ export default class Button extends Component{
     }
 
     render(){
+        
         return(
-            <>
-                <button onClick={(event)=>{this.props.onClick(event)||false}} css={defaultStyle}>{this.props.nome}</button>
+            <> 
+                <button onClick={(event)=>{this.props.icon==undefined?null:this.props.onClick(event)}} css={this.props.css==undefined?defaultStyle:this.props.css}>{this.props.icon==undefined?null: <img></img> }{this.props.nome}</button>
             </>
         )
     }
